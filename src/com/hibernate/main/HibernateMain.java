@@ -10,6 +10,7 @@ import org.hibernate.cfg.Configuration;
 import com.hibernate.domain.Bank;
 import com.hibernate.domain.Book;
 import com.hibernate.domain.Manager;
+import com.hibernate.domain.ParentsName;
 import com.hibernate.domain.Student;
 import com.hibernate.domain.Teacher;
 import com.hibernate.domain.TeacherName;
@@ -47,10 +48,23 @@ public class HibernateMain {
 		name.setMname("madushan");
 		name.setLname("de silva");
 		
+		TeacherName parName = new TeacherName();
+		parName.setFname("nirosha");
+		parName.setMname("de silva");
+		parName.setLname("K.S");
+		
+		
+//		ParentsName p = new ParentsName();
+//		p.setParentFname("jayani");
+//		p.setParentMname("de silva");
+//		p.setParentInitials("N.C");
+		
 		Teacher t = new Teacher();
 		t.setContactNo("0000000000");
 		t.setDob("2001.8.25");
 		t.setName(name);
+		t.setParentName(parName);
+		
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
