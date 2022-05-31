@@ -11,6 +11,8 @@ import com.hibernate.domain.Bank;
 import com.hibernate.domain.Book;
 import com.hibernate.domain.Manager;
 import com.hibernate.domain.Student;
+import com.hibernate.domain.Teacher;
+import com.hibernate.domain.TeacherName;
 
 public class HibernateMain {
 	public static void main(String[] args) {
@@ -27,31 +29,41 @@ public class HibernateMain {
 //		b.setAuthor("Akila Delapalage");
 //		b.setStudent(s);		
 		
-		Manager manager = new Manager();
-		manager.setName("Tim David");
-		manager.setContactno("0778569587");
-		manager.setDob("1988.12.5");
+//		Manager manager = new Manager();
+//		manager.setName("Tim David");
+//		manager.setContactno("0778569587");
+//		manager.setDob("1988.12.5");
+//		
+//		Bank bank = new Bank();
+//		bank.setCode("5566");
+//		bank.setDescription("Commercial Bank");
+//		bank.setStatus("active");
+//		bank.setManager(manager);
 		
-		Bank bank = new Bank();
-		bank.setCode("5566");
-		bank.setDescription("Commercial Bank");
-		bank.setStatus("active");
-		bank.setManager(manager);
+//		manager.setBank(bank);
 		
-		manager.setBank(bank);
+		TeacherName name = new TeacherName();
+		name.setFname("kasun");
+		name.setMname("madushan");
+		name.setLname("de silva");
+		
+		Teacher t = new Teacher();
+		t.setContactNo("0000000000");
+		t.setDob("2001.8.25");
+		t.setName(name);
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();		
-//		session.save(manager);
+		session.save(t);
 //		session.save(bank);
 		
 		//Read data with hibernate
-		Bank b = session.get(Bank.class, 2);
-		System.out.println(b.getManager().getName());
-		
-		Manager m = session.get(Manager.class, 1);
-		System.out.println(m.getBank().getDescription());
+//		Bank b = session.get(Bank.class, 2);
+//		System.out.println(b.getManager().getName());
+//		
+//		Manager m = session.get(Manager.class, 1);
+//		System.out.println(m.getBank().getDescription());
 		
 		session.getTransaction().commit();
 		session.close();

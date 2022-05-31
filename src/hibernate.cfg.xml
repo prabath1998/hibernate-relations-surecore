@@ -13,7 +13,7 @@
         <property name="connection.password">root</property>
 
         <!-- JDBC connection pool (use the built-in) -->
-        <property name="connection.pool_size">1</property>
+        <property name="connection.pool_size">10</property>
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
@@ -37,12 +37,19 @@
 		<mapping class="com.hibernate.domain.Book"/>
 		<mapping class="com.hibernate.domain.Bank"/>
 		<mapping class="com.hibernate.domain.Manager"/>
+		<mapping class="com.hibernate.domain.Teacher"/>
 		<mapping class="com.hibernate.onetomany.Branch"/>
 		<mapping class="com.hibernate.onetomany.Banks"/>
 		<mapping class="com.hibernate.manytomany.Bus"/>
 		<mapping class="com.hibernate.manytomany.Passenger"/>
 		<mapping class="com.hibernate.manytoone.Class"/>
 		<mapping class="com.hibernate.manytoone.Students"/>
+		<mapping class="com.hibernate.manytoone2.Car"/>
+		<mapping class="com.hibernate.manytoone2.Driver"/>
+		<mapping class="com.hibernate.manytomany2.Books"/>
+		<mapping class="com.hibernate.manytomany2.Author"/>
+		<mapping class="com.hibernate.tablegen.Cars"/>
+		<mapping class="com.hibernate.tablegen.Animal"/>
 
 	</session-factory>
 </hibernate-configuration>
